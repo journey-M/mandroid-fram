@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import dev.guowj.androidfram.commonutil.SecurityUtils;
+import dev.guowj.androidfram.commonutil.ToastUtils;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+        String result = SecurityUtils.encodeByMD5("hahahahh");
+
+        ToastUtils.displayTextLong(this, result);
     }
 
     @Override
