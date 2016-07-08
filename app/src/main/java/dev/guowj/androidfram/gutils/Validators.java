@@ -3,7 +3,7 @@
  * Copyright (c) 2005 ZDSoft.net, Inc. All rights reserved.
  * $Id: Validators.java 30896 2012-09-27 04:37:48Z xuan $
  */
-package dev.guowj.androidfram.commonutil;
+package dev.guowj.androidfram.gutils;
 
 import java.util.Collection;
 import java.util.regex.Pattern;

@@ -1,4 +1,4 @@
-package dev.guowj.androidfram.commonutil;
+package dev.guowj.androidfram.gutils;
 
 import android.app.Activity;
 import android.content.Context;

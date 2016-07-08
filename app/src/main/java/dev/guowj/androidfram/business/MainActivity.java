@@ -1,4 +1,4 @@
-package dev.guowj.androidfram;
+package dev.guowj.androidfram.business;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -6,11 +6,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 
-import dev.guowj.androidfram.commonutil.SecurityUtils;
-import dev.guowj.androidfram.commonutil.ToastUtils;
+import dev.guowj.androidfram.BuildConfig;
+import dev.guowj.androidfram.R;
+import dev.guowj.androidfram.gutils.LogsUtil;
+import dev.guowj.androidfram.gutils.SecurityUtils;
+import dev.guowj.androidfram.gutils.ToastUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,29 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         String result = SecurityUtils.encodeByMD5("hahahahh");
+        ToastUtils.displayTextLong(result);
+        LogsUtil.e(result);
+        LogsUtil.e("appid = " + BuildConfig.APPLICATION_ID);
 
-        ToastUtils.displayTextLong(this, result);
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

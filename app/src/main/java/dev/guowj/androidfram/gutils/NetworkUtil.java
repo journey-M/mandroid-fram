@@ -1,4 +1,4 @@
-package dev.guowj.androidfram.commonutil;
+package dev.guowj.androidfram.gutils;
 
 import android.content.Context;
 import android.location.LocationManager;

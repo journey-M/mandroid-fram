@@ -3,7 +3,7 @@
  * Copyright (c) 2004 ZDSoft Networks, Inc. All rights reserved.
  * $Id: SecurityUtils.java 33450 2012-12-13 08:34:03Z xuan $
  */
-package dev.guowj.androidfram.commonutil;
+package dev.guowj.androidfram.gutils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

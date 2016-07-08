@@ -3,7 +3,7 @@
  * Copyright (c) 2012 ZDSoft Networks, Inc. All rights reserved.
  * $Id$
  */
-package dev.guowj.androidfram.commonutil;
+package dev.guowj.androidfram.gutils;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -3,7 +3,7 @@
  * Copyright (c) 2013 ZDSoft Networks, Inc. All rights reserved.
  * $Id$
  */
-package dev.guowj.androidfram.commonutil;
+package dev.guowj.androidfram.gutils;
 
 import android.content.Context;
 import android.content.Intent;

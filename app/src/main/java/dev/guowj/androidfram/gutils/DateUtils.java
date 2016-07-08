@@ -3,7 +3,7 @@
  * Copyright (c) 2005 ZDSoft Networks, Inc. All rights reserved.
  * $Id: DateUtils.java 34780 2013-02-17 10:43:59Z xuan $
  */
-package dev.guowj.androidfram.commonutil;
+package dev.guowj.androidfram.gutils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
