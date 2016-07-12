@@ -9,6 +9,7 @@ import javax.net.ssl.SSLSession;
 
 import dev.guowj.androidfram.gutils.LogsUtil;
 import dev.guowj.androidfram.net.https.GoogleSsl;
+import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -25,11 +26,9 @@ public class NetClient {
 
 
     //服务器
-    public static String BASEURL = "http://172.16.1.3:8765/api/";
+    public static String BASEURL = "http://172.30.204.92:8103/index.php/api/";
 
 
-    //图片下载的地址
-    public static String BASE_PHOTO_URL = BASEURL + "resource/download?resId=";
     private static ApiService apiService = null;
     private static Retrofit retrofit;
     private static OkHttpClient httpClient;
@@ -64,9 +63,12 @@ public class NetClient {
                     }
                 })
                 //拦截器
-                .addInterceptor(new HeaderInterceptor())
+                .addInterceptor(new HeaderGetInterceptor())
+//                .addInterceptor(new HeaderInterceptor())
+//                .addInterceptor(new HttpLoggingInterceptor())
                 //ssl证书
-                .sslSocketFactory(GoogleSsl.test().getSocketFactory()).build();
+//                .sslSocketFactory(GoogleSsl.test().getSocketFactory())
+                .build();
     }
 
 
@@ -104,14 +106,32 @@ class HeaderInterceptor implements Interceptor {
                 .addHeader("version", "2.0.1")
                 .method(original.method(), original.body());
         Request request = builder.build();
-        //添加log日志
+        //添加log日志 请求值
         LogsUtil.e(request.toString());
         Response response = chain.proceed(request);
         String content = response.body().string();
+        //添加log日志 respone返回值
         LogsUtil.e(content);
         okhttp3.MediaType mediaType = response.body().contentType();
         return response.newBuilder().body(okhttp3.ResponseBody.create(mediaType, content)).build();
     }
+}
 
-
+class HeaderGetInterceptor implements Interceptor {
+    @Override
+    public Response intercept(Chain chain) throws IOException {
+        Request original = chain.request();
+        HttpUrl originHttpUrl = original.url();
+        HttpUrl newUrl = originHttpUrl.newBuilder().addQueryParameter("soft_ver", "2.0.1").build();
+        //输出打印请求的路径
+        LogsUtil.e("Request:" + newUrl);
+        Request.Builder builder = original.newBuilder().url(newUrl);
+        Request request = builder.build();
+        Response response = chain.proceed(request);
+        String content = response.body().string();
+        ////输出打印respone返回值
+        LogsUtil.e(content);
+        okhttp3.MediaType mediaType = response.body().contentType();
+        return response.newBuilder().body(okhttp3.ResponseBody.create(mediaType, content)).build();
+    }
 }

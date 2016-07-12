@@ -40,4 +40,11 @@ public interface ApiService {
 //    Call<CallBackUpLoadImg.BaseRespPhoto> uploadImageS(@Part("file\"; filename=\"image.png\"") RequestBody... imgs);
 
 
+    //凤凰识装app 发现页面
+
+    //登陆接口
+//    @FormUrlEncoded
+    @POST("findhome?platform=2")
+    Call<JsonObject> findPageInfo();
+
 }

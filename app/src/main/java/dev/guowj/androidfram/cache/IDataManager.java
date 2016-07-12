@@ -8,6 +8,7 @@ public interface IDataManager<T> {
 
     /**
      * 存入数据
+     *
      * @param key
      * @param t
      */
@@ -15,12 +16,14 @@ public interface IDataManager<T> {
 
     /**
      * 删除某一条数据
+     *
      * @param key
      */
     void delete(String key);
 
     /**
      * 更新数据
+     *
      * @param key
      * @param t
      */
@@ -28,17 +31,12 @@ public interface IDataManager<T> {
 
     /**
      * 查找数据
+     *
      * @param key
      * @return
      */
     T find(String key);
 
-    /**
-     * 查找数据
-     * @param key
-     * @return
-     */
-    T find(String key, Class<T> cls);
 
     /**
      * 清空数据

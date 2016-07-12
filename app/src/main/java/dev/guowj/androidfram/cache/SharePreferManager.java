@@ -3,6 +3,8 @@ package dev.guowj.androidfram.cache;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import java.util.List;
+
 import dev.guowj.androidfram.App;
 
 /**
@@ -69,11 +71,6 @@ public class SharePreferManager<T> implements IDataManager<T> {
             case "Long":
                 return (T) (Long) sp.getLong(key, 0L);
         }
-        return null;
-    }
-
-    @Override
-    public T find(String key, Class<T> cls) {
         return null;
     }
 

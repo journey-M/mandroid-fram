@@ -8,8 +8,6 @@ public class LocalDataFactory {
 
     public enum LocalDataType {
         CACHE,
-        DB,
-        DISK,
         SP
     }
 
@@ -17,13 +15,7 @@ public class LocalDataFactory {
         IDataManager<T> dataManager = null;
         switch (type) {
             case CACHE:
-                dataManager = new CacheFileManager<>();
-                break;
-            case DB:
-//                dataManager = new DBManager();
-                break;
-            case DISK:
-                dataManager = new DiskManager<>();
+                dataManager = new ObjectFileManager<>();
                 break;
             case SP:
                 dataManager = new SharePreferManager<>();
